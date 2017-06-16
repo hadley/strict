@@ -9,9 +9,7 @@ strict_square_bracket(x, ...)
 \arguments{
 \item{x}{The object to be indexed.}
 
-\item{...}{Other indexing values.}
-
-\item{i}{The first index.}
+\item{...}{Indexing values.}
 }
 \description{
 The effect of indexing with a factor is unclear, since factors can behave

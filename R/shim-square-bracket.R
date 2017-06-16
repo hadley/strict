@@ -11,8 +11,7 @@ register_shims_square_bracket <- function(env) {
 #' strict mode, factor indexing throws an error.
 #'
 #' @param x The object to be indexed.
-#' @param i The first index.
-#' @param ... Other indexing values.
+#' @param ... Indexing values.
 #' @export
 #' @examples
 #' (x <- c(d = 1, c = 4, b = 9, a = 16))
