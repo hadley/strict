@@ -16,14 +16,24 @@ register_shims_square_bracket <- function(env) {
 #' @examples
 #' (x <- c(d = 1, c = 4, b = 9, a = 16))
 #' (index <- factor(letters[1:4]))
-#' # Character and integer indexing OK
+#' # Character and integer indexing is OK.
 #' x[as.character(index)]
 #' x[as.integer(index)]
-#' # Factor indexing disallowed
+#' # Factor indexing is disallowed.
 #' try(x[index])
-strict_square_bracket <- function(x, i, ...) {
-  if(is.factor(i)) {
-    stop("Indexing with a factor is disallowed.")
-  } else base::`[`(x, i, ...)
+#'
+#' # For higher dimension objects, passing a factor to any dimension
+#' # throws an error.
+#' d <- data.frame(
+#'   a = 1:4, b = letters[1:4], c = runif(4),
+#'   stringsAsFactors = FALSE)
+#' try(d[factor(d$b), ])
+#' try(d[, factor(c("a", "b"))])
+strict_square_bracket <- function(x, ...) {
+  #browser()
+  indexers <- rlang::dots_list(..., .ignore_empty = "all")
+  if(any(vapply(indexers, is.factor, logical(1L)))) {
+    stop("Indexing with a factor has unclear behavior. Explicitly coerce your index to a character or integer vector.")
+  } else base::`[`(x, ...)
 }
 
