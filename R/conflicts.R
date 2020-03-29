@@ -22,7 +22,7 @@ register_conflicts <- function() {
 
   # For each conflicted, new active binding in shim environment
   conflict_overrides <- Map(conflict_fun, names(conflicts), conflicts)
-  env_bind_fns(env, !!! conflict_overrides)
+  env_bind_active(env, !!! conflict_overrides)
 
   # Shim library() and require() so we can rebuild
   env_bind(env,
@@ -99,5 +99,3 @@ conflict_fun <- function(name, pkgs) {
     )
   }
 }
-
-
