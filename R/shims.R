@@ -17,7 +17,7 @@ register_shims <- function() {
 }
 
 register_shim_T_F <- function(env) {
-  env_bind_fns(env,
+  env_bind_active(env,
     T = function() strict_abort("Please use TRUE, not T"),
     F = function() strict_abort("Please use FALSE, not F")
   )
