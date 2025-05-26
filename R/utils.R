@@ -1,6 +1,6 @@
 strict_abort <- function(..., help = NULL) {
   # Need to use colour when available in RStudio tracebacks
-  msg <- paste0("[strict]\n", ..., collapse = "")
+  msg <- paste0(c("[strict]\n", ...), collapse = "")
   if (!is.null(help)) {
     msg <- paste0(msg, "\nPlease see ?", help, " for more details")
   }
