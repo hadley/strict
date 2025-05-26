@@ -1,0 +1,18 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://hadley.github.io/strict/404.html</loc></url>
+<url><loc>https://hadley.github.io/strict/LICENSE-text.html</loc></url>
+<url><loc>https://hadley.github.io/strict/LICENSE.html</loc></url>
+<url><loc>https://hadley.github.io/strict/authors.html</loc></url>
+<url><loc>https://hadley.github.io/strict/index.html</loc></url>
+<url><loc>https://hadley.github.io/strict/reference/index.html</loc></url>
+<url><loc>https://hadley.github.io/strict/reference/is_strict.html</loc></url>
+<url><loc>https://hadley.github.io/strict/reference/lax.html</loc></url>
+<url><loc>https://hadley.github.io/strict/reference/shim_colon.html</loc></url>
+<url><loc>https://hadley.github.io/strict/reference/strict-package.html</loc></url>
+<url><loc>https://hadley.github.io/strict/reference/strict_apply.html</loc></url>
+<url><loc>https://hadley.github.io/strict/reference/strict_arg.html</loc></url>
+<url><loc>https://hadley.github.io/strict/reference/strict_deactivate.html</loc></url>
+<url><loc>https://hadley.github.io/strict/reference/strict_sample.html</loc></url>
+<url><loc>https://hadley.github.io/strict/reference/strict_sapply.html</loc></url>
+</urlset>
+
