@@ -22,3 +22,5 @@ Suggests:
 Roxygen: list(markdown = TRUE)
 Config/Needs/website: tidyverse/tidytemplate
 Config/testthat/edition: 3
+Depends: 
+    R (>= 4.1)
