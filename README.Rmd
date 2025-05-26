@@ -15,9 +15,10 @@ set.seed(1014)
 
 # strict
 
-[![Travis-CI Build Status](https://travis-ci.org/hadley/strict.svg?branch=master)](https://travis-ci.org/hadley/strict)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/strict)](https://cran.r-project.org/package=strict)
-[![Coverage Status](https://img.shields.io/codecov/c/github/hadley/strict/master.svg)](https://codecov.io/github/hadley/strict?branch=master)
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/hadley/strict/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/hadley/strict/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/hadley/strict/graph/badge.svg)](https://app.codecov.io/gh/hadley/strict)
+<!-- badges: end -->
 
 The goal of strict is to make R behave a little more strictly, making base functions more likely to throw an error rather than returning potentially ambiguous results. 
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/shim-apply.R
 \name{strict_sapply}
 \alias{strict_sapply}
-\title{Strict version of `sapply()`}
+\title{Strict version of \code{sapply()}}
 \usage{
 strict_sapply(...)
 }
@@ -10,9 +10,9 @@ strict_sapply(...)
 \item{...}{Ignored}
 }
 \description{
-`sapply()` is dangerous for programmatic usage because it is type-unstable:
+\code{sapply()} is dangerous for programmatic usage because it is type-unstable:
 you can't predict in advance what it's going to return just be reading the
-code. Instead use [vapply()], which has an additional argument `FUN.VALUE`,
+code. Instead use \code{\link[=vapply]{vapply()}}, which has an additional argument \code{FUN.VALUE},
 that
 }
 \examples{

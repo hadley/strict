@@ -1,8 +1,5 @@
 register_shims_scalar <- function(env) {
-  env_bind(env,
-    sample = strict_sample,
-    diag = strict_diag
-  )
+  env_bind(env, sample = strict_sample, diag = strict_diag)
 }
 
 #' Strict behaviour for functions with special scalar behaviour

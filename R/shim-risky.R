@@ -7,7 +7,12 @@
 #' @param name Name of argument
 #' @export
 strict_arg <- function(name) {
-  strict_abort("Please supply a value for `", name, "` argument.", help = "strict_arg")
+  strict_abort(
+    "Please supply a value for `",
+    name,
+    "` argument.",
+    help = "strict_arg"
+  )
 }
 
 #' @export
@@ -33,13 +38,16 @@ strict_drop <- function(j) {
 }
 
 register_shims_risky <- function(env) {
-  env_bind(env,
-    as.data.frame.character = replace_strings_as_factors(as.data.frame.character),
-    as.data.frame.list =      replace_strings_as_factors(as.data.frame.list),
-    data.frame =              replace_strings_as_factors(data.frame),
-    read.table =              replace_strings_as_factors(utils::read.table),
-    `[.data.frame` =          replace_args(`[.data.frame`, drop = quote(strict_drop(j))),
-    read.csv =                strict_read_csv,
+  env_bind(
+    env,
+    as.data.frame.character = replace_strings_as_factors(
+      as.data.frame.character
+    ),
+    as.data.frame.list = replace_strings_as_factors(as.data.frame.list),
+    data.frame = replace_strings_as_factors(data.frame),
+    read.table = replace_strings_as_factors(utils::read.table),
+    `[.data.frame` = replace_args(`[.data.frame`, drop = quote(strict_drop(j))),
+    read.csv = strict_read_csv,
   )
 }
 
@@ -59,10 +67,17 @@ replace_args <- function(fun, ...) {
   fun
 }
 
-strict_read_csv <- function(file, header = TRUE, sep = ",", quote = "\"",
-                            dec = ".", fill = TRUE, comment.char = "",
-                            stringsAsFactors = strict_arg("stringsAsFactors"),
-                            ...) {
+strict_read_csv <- function(
+  file,
+  header = TRUE,
+  sep = ",",
+  quote = "\"",
+  dec = ".",
+  fill = TRUE,
+  comment.char = "",
+  stringsAsFactors = strict_arg("stringsAsFactors"),
+  ...
+) {
   utils::read.table(
     file = file,
     header = header,
@@ -77,13 +92,12 @@ strict_read_csv <- function(file, header = TRUE, sep = ",", quote = "\"",
 }
 # Helpers to find risky functions -----------------------------------------
 
-#' @examples
-#' funs <- unlist(lapply(packages, pkg_funs), recursive = FALSE)
-#' fmls <- lapply(funs, function(x) as.list(formals(x)))
-#'
-#' fmls %>% purrr::keep(has_computed_arg, "drop") %>% str()
-#' fmls %>% purrr::keep(has_computed_arg, "stringsAsFactors") %>% str()
-#' fmls %>% purrr::keep(uses_options) %>% str()
+# funs <- unlist(lapply(packages, pkg_funs), recursive = FALSE)
+# fmls <- lapply(funs, function(x) as.list(formals(x)))
+#
+# fmls %>% purrr::keep(has_computed_arg, "drop") %>% str()
+# fmls %>% purrr::keep(has_computed_arg, "stringsAsFactors") %>% str()
+# fmls %>% purrr::keep(uses_options) %>% str()
 has_computed_arg <- function(formals, arg) {
   has_name(arg, formals) && !is_syntactic_literal(formals[[arg]])
 }

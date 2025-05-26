@@ -13,7 +13,7 @@
 shim_colon <- function(from, to) {
   if (to == 0L && from > 0) {
     strict_abort(
-      "Tried to create descending sequence ", from, ":", to, ". ",
+      c("Tried to create descending sequence ", from, ":", to, ". "),
       "Do you want to `seq_along()` instead?\n",
       help = "shim_colon"
     )

@@ -4,3 +4,10 @@
 ^README\.Rmd$
 ^README-.*\.png$
 ^codecov\.yml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
+^[\.]?air\.toml$
+^\.vscode$
+^LICENSE\.md$

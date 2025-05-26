@@ -2,17 +2,17 @@
 % Please edit documentation in R/shim-colon.R
 \name{shim_colon}
 \alias{shim_colon}
-\title{Strict version of `:`}
+\title{Strict version of \code{:}}
 \usage{
 shim_colon(from, to)
 }
 \arguments{
-\item{from, to}{Passed on to [seq()]}
+\item{from, to}{Passed on to \code{\link[=seq]{seq()}}}
 }
 \description{
-This version of `:` throws an error if `from` is positive and `to` is
-zero, to make the error more obvious if you've used `1:length(x)` instead
-of [seq_along()]
+This version of \code{:} throws an error if \code{from} is positive and \code{to} is
+zero, to make the error more obvious if you've used \code{1:length(x)} instead
+of \code{\link[=seq_along]{seq_along()}}
 }
 \examples{
 x <- numeric()

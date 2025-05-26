@@ -10,10 +10,10 @@ strict_sample(x, size = length(x), replace = FALSE, prob = NULL)
 strict_diag(x = 1, nrow, ncol)
 }
 \arguments{
-\item{x, size, replace, prob, nrow, ncol}{Passed on to [sample()] and [diag()]}
+\item{x, size, replace, prob, nrow, ncol}{Passed on to \code{\link[=sample]{sample()}} and \code{\link[=diag]{diag()}}}
 }
 \description{
-[sample()] and [diag()] behave differently depending on whether their
+\code{\link[=sample]{sample()}} and \code{\link[=diag]{diag()}} behave differently depending on whether their
 first argument is a scalar or a function. These shims throw an error
 when given a scalar to force you to pick a safer alternative.
 }
