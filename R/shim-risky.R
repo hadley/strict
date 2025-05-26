@@ -77,13 +77,12 @@ strict_read_csv <- function(file, header = TRUE, sep = ",", quote = "\"",
 }
 # Helpers to find risky functions -----------------------------------------
 
-#' @examples
-#' funs <- unlist(lapply(packages, pkg_funs), recursive = FALSE)
-#' fmls <- lapply(funs, function(x) as.list(formals(x)))
-#'
-#' fmls %>% purrr::keep(has_computed_arg, "drop") %>% str()
-#' fmls %>% purrr::keep(has_computed_arg, "stringsAsFactors") %>% str()
-#' fmls %>% purrr::keep(uses_options) %>% str()
+# funs <- unlist(lapply(packages, pkg_funs), recursive = FALSE)
+# fmls <- lapply(funs, function(x) as.list(formals(x)))
+#
+# fmls %>% purrr::keep(has_computed_arg, "drop") %>% str()
+# fmls %>% purrr::keep(has_computed_arg, "stringsAsFactors") %>% str()
+# fmls %>% purrr::keep(uses_options) %>% str()
 has_computed_arg <- function(formals, arg) {
   has_name(arg, formals) && !is_syntactic_literal(formals[[arg]])
 }
