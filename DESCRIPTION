@@ -7,7 +7,7 @@ Authors@R: c(
   )
 Description: This packages tweaks the operation of base R code to make
     things a little stricter.
-License: GPL-3
+License: MIT + file LICENSE
 URL: https://github.com/hadley/strict, https://hadley.github.io/strict/
 BugReports: https://github.com/hadley/strict/issues
 Depends: 
