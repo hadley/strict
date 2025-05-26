@@ -8,3 +8,5 @@
 ^docs$
 ^pkgdown$
 ^\.github$
+^[\.]?air\.toml$
+^\.vscode$

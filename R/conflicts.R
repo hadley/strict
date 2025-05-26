@@ -22,13 +22,10 @@ register_conflicts <- function() {
 
   # For each conflicted, new active binding in shim environment
   conflict_overrides <- Map(conflict_fun, names(conflicts), conflicts)
-  env_bind_active(env, !!! conflict_overrides)
+  env_bind_active(env, !!!conflict_overrides)
 
   # Shim library() and require() so we can rebuild
-  env_bind(env,
-    library = shim_library,
-    require = shim_require
-  )
+  env_bind(env, library = shim_library, require = shim_require)
 }
 
 unique_obj <- function(name, pkgs) {
@@ -44,18 +41,23 @@ package_name <- function(package, character.only = FALSE) {
   } else {
     package <- eval_tidy(package)
   }
-  if (length(package) != 1L)
-    stop("'package' must be of length 1")
-  if (is.na(package) || (package == ""))
-    stop("invalid package name")
+  if (length(package) != 1L) stop("'package' must be of length 1")
+  if (is.na(package) || (package == "")) stop("invalid package name")
 
   package
 }
 
-shim_library <- function(package, help, pos = 2, lib.loc = NULL, character.only = FALSE,
-    logical.return = FALSE, warn.conflicts = TRUE, quietly = FALSE,
-    verbose = getOption("verbose")) {
-
+shim_library <- function(
+  package,
+  help,
+  pos = 2,
+  lib.loc = NULL,
+  character.only = FALSE,
+  logical.return = FALSE,
+  warn.conflicts = TRUE,
+  quietly = FALSE,
+  verbose = getOption("verbose")
+) {
   package <- package_name(enquo(package), character.only = character.only)
   on.exit(register_conflicts())
 
@@ -72,9 +74,13 @@ shim_library <- function(package, help, pos = 2, lib.loc = NULL, character.only 
   ))
 }
 
-shim_require <- function(package, lib.loc = NULL, quietly = FALSE, warn.conflicts = TRUE,
-                        character.only = FALSE) {
-
+shim_require <- function(
+  package,
+  lib.loc = NULL,
+  quietly = FALSE,
+  warn.conflicts = TRUE,
+  character.only = FALSE
+) {
   package <- package_name(enquo(package), character.only = character.only)
   on.exit(register_conflicts())
 
@@ -85,7 +91,6 @@ shim_require <- function(package, lib.loc = NULL, quietly = FALSE, warn.conflict
     warn.conflicts = FALSE,
     character.only = TRUE
   ))
-
 }
 
 conflict_fun <- function(name, pkgs) {
@@ -93,7 +98,9 @@ conflict_fun <- function(name, pkgs) {
 
   function(...) {
     strict_abort(
-      "Multiple definitions found for `", name, "`.\n",
+      "Multiple definitions found for `",
+      name,
+      "`.\n",
       "Please pick one:\n",
       paste0(bullets, collapse = "\n")
     )

@@ -1,8 +1,5 @@
 register_shims_apply <- function(env) {
-  env_bind(env,
-    sapply = strict_sapply,
-    apply = strict_apply
-  )
+  env_bind(env, sapply = strict_sapply, apply = strict_apply)
 }
 
 #' Strict version of `sapply()`
@@ -30,7 +27,10 @@ register_shims_apply <- function(env) {
 #' # A vector
 #' base::sapply(df[1:2], class)
 strict_sapply <- function(...) {
-  strict_abort("Please use `vapply()` instead of `sapply()`.", help = "strict_sapply")
+  strict_abort(
+    "Please use `vapply()` instead of `sapply()`.",
+    help = "strict_sapply"
+  )
 }
 
 #' Strict version of `apply()`
@@ -41,13 +41,13 @@ strict_sapply <- function(...) {
 #'
 #' @param X,MARGIN,FUN,... Passed on to [apply()]
 #' @export
-strict_apply <- function(X, MARGIN, FUN, ...)  {
+strict_apply <- function(X, MARGIN, FUN, ...) {
   if (is.data.frame(X)) {
     strict_abort(
       "`apply()` coerces `X` to a matrix so is dangerous to use with data frames.",
-      "Please use `lapply()` instead.")
+      "Please use `lapply()` instead."
+    )
   }
 
   apply(X, MARGIN, FUN, ...)
 }
-
