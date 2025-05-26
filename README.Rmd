@@ -19,7 +19,7 @@ set.seed(1014)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/strict)](https://cran.r-project.org/package=strict)
 [![Coverage Status](https://img.shields.io/codecov/c/github/hadley/strict/master.svg)](https://codecov.io/github/hadley/strict?branch=master)
 
-The goal of strict to make R behave a little more strictly, making base functions more likely to throw an error rather than returning potentially ambiguous results. 
+The goal of strict is to make R behave a little more strictly, making base functions more likely to throw an error rather than returning potentially ambiguous results. 
 
 `library(strict)` forces you to confront potential problems now, instead of in the future. This has both pros and cons: often you can most easily fix a potential ambiguity when your working on the code (rather than in six months time when you've forgotten how it works), but it also forces you to resolve ambiguities that might never occur with your code/data.
 
