@@ -3,11 +3,12 @@
 
 # strict
 
-[![Travis-CI Build
-Status](https://travis-ci.org/hadley/strict.svg?branch=master)](https://travis-ci.org/hadley/strict)
-[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/strict)](https://cran.r-project.org/package=strict)
-[![Coverage
-Status](https://img.shields.io/codecov/c/github/hadley/strict/master.svg)](https://codecov.io/github/hadley/strict?branch=master)
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/hadley/strict/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/hadley/strict/actions/workflows/R-CMD-check.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/hadley/strict/graph/badge.svg)](https://app.codecov.io/gh/hadley/strict)
+<!-- badges: end -->
 
 The goal of strict is to make R behave a little more strictly, making
 base functions more likely to throw an error rather than returning
@@ -44,7 +45,7 @@ devtools::install_github("hadley/strict")
   is.discrete
   #> function (x) 
   #> is.factor(x) || is.character(x) || is.logical(x)
-  #> <bytecode: 0x10703b498>
+  #> <bytecode: 0x1068481a0>
   #> <environment: namespace:plyr>
   ```
 
@@ -85,7 +86,7 @@ devtools::install_github("hadley/strict")
   ``` r
   library(strict)
   T
-  #> Error in `strict_abort()` at strict/R/shims.R:21:9:
+  #> Error in `strict_abort()` at strict/R/shims.R:22:9:
   #> ! [strict]
   #> Please use TRUE, not T
   ```
@@ -97,7 +98,7 @@ devtools::install_github("hadley/strict")
   ``` r
   library(strict)
   sapply(1:10, sum)
-  #> Error in `strict_abort()` at strict/R/shim-apply.R:33:3:
+  #> Error in `strict_abort()` at strict/R/shim-apply.R:30:3:
   #> ! [strict]
   #> Please use `vapply()` instead of `sapply()`.
   #> Please see ?strict_sapply for more details
@@ -132,7 +133,7 @@ devtools::install_github("hadley/strict")
   #> [1] 4 2 1 3 5
 
   sample(5:5)
-  #> Error in `strict_abort()` at strict/R/shim-scalar.R:33:5:
+  #> Error in `strict_abort()` at strict/R/shim-scalar.R:30:5:
   #> ! [strict]
   #> `sample()` has surprising behaviour when `x` is a scalar.
   #> Use `sample.int()` instead.
